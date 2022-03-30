@@ -76,6 +76,7 @@ inputContrasenia.addEventListener('input', function () {
 //Telefono
 
 inputTelefono.addEventListener('keydown',function(e) { 
+    
     datosUsuario.telefono = "";
     e.preventDefault();
     if(e.key=='Backspace') inputTelefono.value = String(inputTelefono.value).slice(0,-1);
@@ -83,7 +84,8 @@ inputTelefono.addEventListener('keydown',function(e) {
         if([3,7].includes(inputTelefono.value.length)) inputTelefono.value += ' ';
         inputTelefono.value += e.key;
     }
-    if(inputTelefono.value.length == 11) datosUsuario.telefono = inputTelefono.value; 
+    if(inputTelefono.value.length == 11) datosUsuario.telefono = inputTelefono.value;
+    formulario.dispatchEvent(new Event('input')); 
     
     });
 
